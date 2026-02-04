@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samarth Vadey Valey | Premium Vada Pav</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #ff9f1c;
+            --secondary: #ff4d00;
+            --dark: #1a1a1a;
+            --light: #ffffff;
+            --glass: rgba(255, 255, 255, 0.1);
+            --shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* --- UI Elements --- */
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .btn {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 20px rgba(255, 77, 0, 0.3);
+            transition: 0.3s;
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        /* --- Sections --- */
+        section {
+            padding: 60px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            height: 70px;
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(15px);
+            border-radius: 40px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 1000;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        nav a {
+            color: #888;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+
+        nav a.active {
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        /* --- Home Section --- */
+        #home {
+            text-align: center;
+            background: radial-gradient(circle at top right, #332211, #1a1a1a);
+        }
+
+        .hero-3d {
+            position: relative;
+            margin: 40px auto;
+            width: 250px;
+            height: 250px;
+            perspective: 1000px;
+        }
+
+        .floating-vada {
+            width: 100%;
+            filter: drop-shadow(0 30px 20px rgba(0,0,0,0.5));
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(5deg); }
+            50% { transform: translateY(-20px) rotate(-5deg); }
+        }
+
+        .brand-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            background: linear-gradient(to bottom, #fff, #ff9f1c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        /* --- About Section --- */
+        #about .profile-circle {
+            width: 120px;
+            height: 120px;
+            background: var(--primary);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border: 4px solid var(--secondary);
+        }
+
+        .contact-box {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 1.2rem;
+        }
+
+        /* --- Udhar Section --- */
+        #udhar {
+            background: #121212;
+        }
+
+        .udhar-container {
+            margin-top: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            border: none;
+            background: rgba(255,255,255,0.05);
+            color: white;
+            outline: none;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .record-list {
+            margin-top: 30px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .record-item {
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 4px solid var(--primary);
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .total-balance {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 40px 20px 120px;
+            text-align: center;
+            background: #0a0a0a;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .dev-credit {
+            margin-top: 15px;
+            color: var(--primary);
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#home" class="nav-link active"><i class="fas fa-home"></i></a>
+        <a href="#about" class="nav-link"><i class="fas fa-user"></i></a>
+        <a href="#udhar" class="nav-link"><i class="fas fa-book-open"></i></a>
+    </nav>
+
+    <section id="home">
+        <h2 style="color: var(--primary); letter-spacing: 2px;">THE LEGENDARY</h2>
+        <h1 class="brand-name">Samarth Vadey Valey</h1>
+        
+        <div class="hero-3d">
+            <div style="font-size: 150px; line-height: 1;" class="floating-vada">🍔</div>
+        </div>
+
+        <p style="margin-bottom: 30px; opacity: 0.8;">The most authentic Vada Pav in the heart of the city. Crunchy, Spicy, and Premium.</p>
+        
+        <div>
+            <button class="btn" onclick="location.href='#udhar'">Manage Udhar</button>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="glass-card" style="text-align: center;">
+            <div class="profile-circle">
+                <i class="fas fa-store"></i>
+            </div>
+            <h2 style="font-size: 1.8rem; margin-bottom: 10px;">Dagdu Patil</h2>
+            <p style="opacity: 0.7; margin-bottom: 20px;">Proprietor & Master Chef</p>
+            <p>"Serving happiness in every bite for over a decade. Our secret lies in the hand-ground masalas and fresh pav delivered every morning."</p>
+            
+            <div class="contact-box">
+                <a href="tel:8261961028" style="color: var(--primary); text-decoration: none;">
+                    <i class="fas fa-phone-alt"></i> +91 8261961028
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="udhar">
+        <h2 style="text-align: center; margin-bottom: 30px;">Udhar / Hisob</h2>
+        
+        <div class="glass-card">
+            <div class="total-balance">Total: ₹<span id="totalAmount">0</span></div>
+            
+            <div class="udhar-container">
+                <input type="text" id="custName" placeholder="Customer Name">
+                <input type="number" id="custAmount" placeholder="Amount (₹)">
+                <button class="btn" style="width: 100%;" onclick="addRecord()">Add Record</button>
+            </div>
+
+            <div class="record-list" id="recordList">
+                </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; Samarth Vadey Valey – All Rights Reserved</p>
+        <div class="dev-credit">
+            <p>Developed by <strong>Bhushan Dhangar</strong></p>
+            <p><small>Full Stack AI Developer</small></p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Navigation Logic ---
+        const links = document.querySelectorAll('.nav-link');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                links.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+
+        // --- Udhar Management System ---
+        let records = JSON.parse(localStorage.getItem('vadaPavUdhar')) || [];
+
+        function updateUI() {
+            const list = document.getElementById('recordList');
+            const totalDisplay = document.getElementById('totalAmount');
+            list.innerHTML = '';
+            
+            let total = 0;
+            
+            records.forEach((item, index) => {
+                total += parseFloat(item.amount);
+                const div = document.createElement('div');
+                div.className = 'record-item';
+                div.innerHTML = `
+                    <div>
+                        <strong>${item.name}</strong><br>
+                        <small style="opacity:0.6">${item.date}</small>
+                    </div>
+                    <div style="display:flex; align-items:center; gap:15px;">
+                        <span style="color: var(--primary); font-weight:bold;">₹${item.amount}</span>
+                        <i class="fas fa-trash-alt" style="color:#ff4444; cursor:pointer;" onclick="deleteRecord(${index})"></i>
+                    </div>
+                `;
+                list.appendChild(div);
+            });
+
+            totalDisplay.innerText = total;
+            localStorage.setItem('vadaPavUdhar', JSON.stringify(records));
+        }
+
+        function addRecord() {
+            const nameInput = document.getElementById('custName');
+            const amountInput = document.getElementById('custAmount');
+            
+            if(nameInput.value === '' || amountInput.value === '') {
+                alert("Please fill all details");
+                return;
+            }
+
+            const newRecord = {
+                name: nameInput.value,
+                amount: amountInput.value,
+                date: new Date().toLocaleDateString()
+            };
+
+            records.push(newRecord);
+            updateUI();
+
+            // Clear inputs
+            nameInput.value = '';
+            amountInput.value = '';
+        }
+
+        function deleteRecord(index) {
+            if(confirm("Mark as paid/delete?")) {
+                records.splice(index, 1);
+                updateUI();
+            }
+        }
+
+        // Initialize UI on load
+        updateUI();
+
+        // --- Simple 3D Hover Effect for Cards ---
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                let x = e.pageX - card.offsetLeft;
+                let y = e.pageY - card.offsetTop;
+                let px = (x / card.offsetWidth) * 100;
+                let py = (y / card.offsetHeight) * 100;
+                card.style.background = `radial-gradient(circle at ${px}% ${py}%, rgba(255,159,28,0.15), rgba(255,255,255,0.05))`;
+            });
+        });
+    </script>
+</body>
+</html>
